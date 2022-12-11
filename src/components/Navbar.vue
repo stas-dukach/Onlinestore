@@ -8,14 +8,15 @@
         :to="link.url"
         >
         <v-list-tile-action>
-            <v-icon left>{{ links.icon }}</v-icon>
+            <v-icon>{{ link.icon }}</v-icon>
         </v-list-tile-action>
 
         <v-list-tile-content>
-        <v-list-tile-title v-text="links.title"></v-list-tile-title>
+        <v-list-tile-title v-text="link.title"></v-list-tile-title>
         </v-list-tile-content>
         </v-list-tile>
         </v-list>
+
     </v-navigation-drawer>
         <v-toolbar app dark color="primary">
             <v-app-bar-nav-icon @click="sideNav = !sideNav"></v-app-bar-nav-icon>
@@ -24,6 +25,9 @@
             <v-toolbar-items class="hidden-sm-and-down">
                 <v-btn 
                 depressed dark color="primary"
+                v-for="(link, i) in links"
+        :key="i"
+        :to="link.url"
                 >
                     <v-icon left>mdi-account-box</v-icon>
                     Link One</v-btn>
